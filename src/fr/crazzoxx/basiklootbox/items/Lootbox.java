@@ -15,15 +15,15 @@ public class Lootbox {
     }
 
     private ConfigurationParser getConfig;
-    private ItemStack Lootbox(){
+
+    public ItemStack getLootbox(int amount) {
+
         getConfig = new ConfigurationParser(instance.getConfig());
         ItemStack lootbox = new ItemStack(Material.getMaterial(getConfig.lootbox_item()));
         ItemMeta lootbox_meta = getConfig.ApplyMeta(lootbox.getItemMeta());
         lootbox.setItemMeta(lootbox_meta);
+        lootbox.setAmount(amount);
 
         return lootbox;
-    }
-    public ItemStack getLootbox() {
-        return Lootbox();
     }
 }

@@ -37,6 +37,7 @@ public class CBasikLootbox implements CommandExecutor {
 
             String box_count = args[1];
             if(!isNumeric(box_count)){
+                commandSender.sendMessage("§c" + args[1] + " n'est pas un nombre");
                 return false;}
             int box_counts = Integer.parseInt(box_count);
 
@@ -61,6 +62,6 @@ public class CBasikLootbox implements CommandExecutor {
             sender.sendMessage(instance.getConfStr("message.admin-give-online-player").replace("{player}", player.getDisplayName()).replace("{box_count}", String.valueOf(box_count)));
             player.sendMessage(instance.getConfStr("message.player-receive-box").replace("{box_count}", String.valueOf(box_count)));
             Lootbox lootbox = new Lootbox();
-            player.getInventory().addItem(lootbox.getLootbox());
+            player.getInventory().addItem(lootbox.getLootbox(box_count));
     }
 }

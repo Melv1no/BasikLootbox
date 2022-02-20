@@ -11,13 +11,13 @@ message:
   #
   #
   admin-give-offline-player: "Le joueur {player} n'est pas connecter :/"
-  admin-give-online-player: "Vous venez de give {box_count} box à [player}"
+  admin-give-online-player: "Vous venez de give {box_count} box à {player}"
   player-receive-box: "Vous venez de recevoir {box_count} box !"
 
 lootbox:
-  item-name: wool
+  item-name: 'STONE'
   # only work with items ID
-  name: "§bBasik&fLoot&4Box"
+  name: "&bBasik&fLoot&4Box"
   glow: true
   lores:
     - "&c Pour utiliser la lootbox poser la au sol"
