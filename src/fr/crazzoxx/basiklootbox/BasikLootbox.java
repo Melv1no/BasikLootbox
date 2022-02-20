@@ -1,6 +1,8 @@
 package fr.crazzoxx.basiklootbox;
 
 import fr.crazzoxx.basiklootbox.command.CBasikLootbox;
+import fr.crazzoxx.basiklootbox.listener.PlayerInteractEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -16,6 +18,7 @@ public class BasikLootbox extends JavaPlugin {
         }
         instance = this;
         getCommand("basiklootbox").setExecutor(new CBasikLootbox());
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractEvent(), this);
     }
     @Override
     public void onDisable() {

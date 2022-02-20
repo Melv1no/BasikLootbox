@@ -1,8 +1,10 @@
 package fr.crazzoxx.basiklootbox.items.configuration;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.yaml.snakeyaml.Yaml;
 
@@ -18,10 +20,7 @@ public class ConfigurationParser {
     public String getConfig(String confPath){
         return config.getString(confPath).replace("&","§");
     }
-
     public String lootbox_item(){return getConfig("lootbox.item-name");}
-
-
     public ItemMeta ApplyMeta(ItemMeta itemMeta){
 
         List<String> lore = new ArrayList<>();
@@ -36,4 +35,6 @@ public class ConfigurationParser {
         }
         return itemMeta;
     }
+
+
 }

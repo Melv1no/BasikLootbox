@@ -26,4 +26,11 @@ public class Lootbox {
 
         return lootbox;
     }
+    public ItemStack getLootbox() {
+        getConfig = new ConfigurationParser(instance.getConfig());
+        ItemStack lootbox = new ItemStack(Material.getMaterial(getConfig.lootbox_item()));
+        ItemMeta lootbox_meta = getConfig.ApplyMeta(lootbox.getItemMeta());
+        lootbox.setItemMeta(lootbox_meta);
+        return lootbox;
+    }
 }

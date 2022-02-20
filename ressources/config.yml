@@ -1,31 +1,34 @@
 plugin:
   enable: true
   prefix: "&7[&eLootBox&7] "
-  usage: "Utilisation: /basiklootbox pseudo nombre-de-box"
+  usage: "&cUtilisation: /basiklootbox pseudo nombre-de-box"
 message:
-  player-open-box: "&c&l Ouverture de la box !!"
-  player-open-box-reward: "&a&l Fécilitation vous avez reçu {reward-list}"
-  reward-list-row: "- {itemname}, {chance}% de chance !"
-  # Félicitation vous avez reçu:
-  # - xxItems ( 0.50% de chance )
-  #
-  #
-  admin-give-offline-player: "Le joueur {player} n'est pas connecter :/"
-  admin-give-online-player: "Vous venez de give {box_count} box à {player}"
-  player-receive-box: "Vous venez de recevoir {box_count} box !"
-
+  player-open-box: "&c Attention ! Vous ouvrez une loot box !"
+  admin-give-offline-player: "&cLe joueur {player} n'est pas connecter :/"
+  admin-give-online-player: "&cVous venez de give {box_count} box à {player}"
+  player-receive-box: "&cVous venez de recevoir {box_count} box !"
 lootbox:
-  item-name: 'STONE'
-  # only work with items ID
-  name: "&bBasik&fLoot&4Box"
+  item-name: 'BEACON'
+  name: "&b&lBASIK&f&lLOOT&4&lBOX"
   glow: true
   lores:
-    - "&c Pour utiliser la lootbox poser la au sol"
-    - " lorem ipsum :p"
+    - "&7Pose la lootbox sur une surface plate"
+    - "&e&l Rareté: &l○○○&r○○"
+  how-much-loot: 5
   rewards:
     dirt:
-      command: "give {player} dirt"
-    stone:
-      name: "&cSuperStone"
-      item-id: 1
-      number: 64
+      item-name: DIRT
+      percent: 20
+      name: "&dMagicDirt"
+      lore:
+        - "&d&lthis is a magic dirt block"
+      how-much: 1
+    WOOL:
+      item-name: WOOL
+      percent: 80
+      name: "&bMagicWool"
+      lore:
+        - "&b&lthis is a magic Wool block"
+      how-much: 60
+
+
