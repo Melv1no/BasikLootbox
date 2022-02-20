@@ -50,13 +50,16 @@ public class CBasikLootbox implements CommandExecutor {
             }
 
             GiveLootbox(commandSender, target, box_counts);
+            return true;
+        }else{
+            commandSender.sendMessage(instance.getConfStr("plugin.usage"));
+            return false;
         }
-        return false;
     }
 
     public void GiveLootbox(CommandSender sender, Player player, int box_count){
-            sender.sendMessage(instance.getConfStr("").replace("{player}", player.getDisplayName()).replace("{box_count}", String.valueOf(box_count)));
-            player.sendMessage(instance.getConfStr("").replace("{box_count}", String.valueOf(box_count)));
+            sender.sendMessage(instance.getConfStr("message.admin-give-online-player").replace("{player}", player.getDisplayName()).replace("{box_count}", String.valueOf(box_count)));
+            player.sendMessage(instance.getConfStr("message.player-receive-box").replace("{box_count}", String.valueOf(box_count)));
             Lootbox lootbox = new Lootbox();
             player.getInventory().addItem(lootbox.getLootbox());
     }

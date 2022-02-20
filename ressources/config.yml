@@ -11,6 +11,8 @@ message:
   #
   #
   admin-give-offline-player: "Le joueur {player} n'est pas connecter :/"
+  admin-give-online-player: "Vous venez de give {box_count} box à [player}"
+  player-receive-box: "Vous venez de recevoir {box_count} box !"
 
 lootbox:
   item-name: wool
