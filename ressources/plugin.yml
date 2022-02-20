@@ -1,0 +1,10 @@
+name: BasikLootbox
+author: Crazzoxx
+version: 1.0
+main: fr.crazzoxx.basiklootbox.BasikLootbox
+commands:
+  basiklootbox:
+    aliases: [blootbox, blt, lootbox]
+    permission: basiklootbox.admin
+    permission-message: "§cVous n'avez pas la permission requise ( basiklootbox.admin )"
+    description: Commande créer pour le give par la Console / ou par un joueur

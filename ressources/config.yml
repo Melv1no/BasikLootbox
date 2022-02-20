@@ -1,0 +1,29 @@
+plugin:
+  enable: true
+  prefix: "&7[&eLootBox&7] "
+  usage: "Utilisation: /basiklootbox pseudo nombre-de-box"
+message:
+  player-open-box: "&c&l Ouverture de la box !!"
+  player-open-box-reward: "&a&l Fécilitation vous avez reçu {reward-list}"
+  reward-list-row: "- {itemname}, {chance}% de chance !"
+  # Félicitation vous avez reçu:
+  # - xxItems ( 0.50% de chance )
+  #
+  #
+  admin-give-offline-player: "Le joueur {player} n'est pas connecter :/"
+
+lootbox:
+  item-name: wool
+  # only work with items ID
+  name: "§bBasik&fLoot&4Box"
+  glow: true
+  lores:
+    - "&c Pour utiliser la lootbox poser la au sol"
+    - " lorem ipsum :p"
+  rewards:
+    dirt:
+      command: "give {player} dirt"
+    stone:
+      name: "&cSuperStone"
+      item-id: 1
+      number: 64
