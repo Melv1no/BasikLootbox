@@ -2,6 +2,7 @@ package fr.crazzoxx.basiklootbox.listener;
 
 import fr.crazzoxx.basiklootbox.BasikLootbox;
 import fr.crazzoxx.basiklootbox.items.Lootbox;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
@@ -33,15 +34,10 @@ public class PlayerInteractEvent implements Listener {
                 if(e.useInteractedBlock() == Event.Result.ALLOW){
                     player.sendMessage(instance.getConfStr("message.player-open-box"));
                     OpenLootbox(block, player);
-                    e.setCancelled(true);
-                    player.getInventory().remove(new Lootbox().getLootbox(1));
-
-
                 }
             }else{
                     e.setCancelled(true);
                 }
-
             }
         }
     }
@@ -50,10 +46,6 @@ public class PlayerInteractEvent implements Listener {
         location.setY(location.getBlockY() + 3);
         Random rand = new Random();
         HashMap<Double, ItemStack> loots = new HashMap<>();
-
-
-
-
 
         for(String lootSection : instance.getConfig().getConfigurationSection("lootbox.rewards").getKeys(false)){
             try{
@@ -73,11 +65,31 @@ public class PlayerInteractEvent implements Listener {
                     player.sendMessage(e.getStackTrace().toString());
             }
         }
-            for(Map.Entry<Double, ItemStack> entry : loots.entrySet()){
-                        player.getWorld().dropItem(location, entry.getValue());
 
+                Bukkit.getScheduler().runTaskTimer(instance, new Runnable()
+                {
+                    int time = instance.getConfig().getInt("lootbox.how-much-loot"); //or any other number you want to start countdown from
+                    int count = 0;
+                    @Override
+                    public void run()
+                    {
+                        if (this.time == 0)
+                        {
+
+                            location.setY(location.getBlockY() - 3);
+                            location.getBlock().setType(Material.AIR);
+                            return;
+                        }
+                            for(Map.Entry<Double, ItemStack> entry : loots.entrySet()) {
+                                if (rand.nextInt(100) <= entry.getKey()) {
+                                    player.getWorld().dropItem(location, entry.getValue());
+                                    count++;
+                           }
+                        }
+                        this.time--;
+                    }
+                }, 0L, 20L);
             }
-
         }
 
 
@@ -88,6 +100,6 @@ public class PlayerInteractEvent implements Listener {
 
 
 
-    }
+
 
 

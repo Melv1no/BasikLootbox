@@ -29,10 +29,7 @@ public class CBasikLootbox implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String msg, String[] args) {
-        if(args.length == 1 && args[0].toLowerCase() == "reload"){
-            //reload
-            return true;
-        }else if(args.length == 2){
+        if(args.length == 2){
             Player target = Bukkit.getPlayer(args[0]);
 
             String box_count = args[1];

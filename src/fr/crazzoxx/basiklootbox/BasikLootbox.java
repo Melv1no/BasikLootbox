@@ -12,11 +12,13 @@ public class BasikLootbox extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+
         if(!getConfig().getBoolean("plugin.enable")){
             log.warning("config.yml - plugin.enable = false");
             getPluginLoader().disablePlugin(this);
         }
         instance = this;
+
         getCommand("basiklootbox").setExecutor(new CBasikLootbox());
         Bukkit.getPluginManager().registerEvents(new PlayerInteractEvent(), this);
     }

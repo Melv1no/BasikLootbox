@@ -13,22 +13,36 @@ lootbox:
   glow: true
   lores:
     - "&7Pose la lootbox sur une surface plate"
-    - "&e&l Rareté: &l○○○&r○○"
+    - "&e&l Rareté: &l••••&r•"
   how-much-loot: 5
   rewards:
     dirt:
       item-name: DIRT
-      percent: 20
+      percent: 10
       name: "&dMagicDirt"
       lore:
         - "&d&lthis is a magic dirt block"
       how-much: 1
     WOOL:
       item-name: WOOL
-      percent: 80
+      percent: 20
       name: "&bMagicWool"
       lore:
         - "&b&lthis is a magic Wool block"
-      how-much: 60
+      how-much: 1
+    AppleWatch:
+      item-name: WATCH
+      percent: 30
+      name: "&eAPPLE WATCH"
+      lore:
+        - "&b&lthis is a cool watch"
+      how-much: 1
+    Stone:
+      item-name: STONE
+      percent: 40
+      name: "&cStone"
+      lore:
+        - "&b&lSTONNNEE !!!"
+      how-much: 1
 
 
